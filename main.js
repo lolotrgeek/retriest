@@ -1,11 +1,11 @@
 /**
  * Retrying a function `something` with exponential pullback.
- * @param {function} something must return false to trigger a retry
+ * @param {function} something must return `false` to trigger a retry
  * @param {* | array} args to pass to `something`
  * @param {number} interval seconds
  * @param {number} total_tries 
  * @param {number} retries the current count of retries
- * @returns {boolean}
+ * @returns {* | null} either returns function results or `null` for timeout
  */
 async function retrier(something, args = [], interval = 1, total_tries = 10, retries = 0) {
     try {
